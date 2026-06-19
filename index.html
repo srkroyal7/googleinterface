@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Clone</title>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#202124;
+    color:white;
+    height:100vh;
+}
+
+/* Header */
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 20px;
+}
+
+.left-icons,
+.right-icons{
+    display:flex;
+    gap:20px;
+    font-size:18px;
+    color:#cfcfcf;
+}
+
+.address-bar{
+    flex:23;
+    max-width:1200px;
+    margin:0 20px;
+    background:#303134;
+    border:2px solid #8ab4f8;
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    padding:10px 15px;
+}
+
+.address-bar input{
+    flex:1;
+    background:none;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:16px;
+    margin-left:10px;
+}
+
+/* Main Section */
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin-top:120px;
+}
+
+.logo{
+    font-size:90px;
+    font-weight:500;
+    margin-bottom:30px;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:white;
+    padding:15px 20px;
+    border-radius:50px;
+    width:700px;
+}
+
+.search-box i{
+    color:#5f6368;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:16px;
+}
+
+.search-box button{
+    border:none;
+    background:#e8eaed;
+    padding:10px 15px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.shortcuts{
+    display:flex;
+    gap:40px;
+    margin-top:50px;
+}
+
+.shortcut{
+    text-align:center;
+    cursor:pointer;
+}
+
+.circle{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:rgb(105, 104, 104);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-size:24px;
+}
+
+.shortcut p{
+    margin-top:10px;
+    color:#ddd;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<header>
+    <div class="left-icons">
+        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-right"></i>
+        <i class="fa-solid fa-rotate-right"></i>
+    </div>
+
+    <div class="address-bar">
+        <i class="fa-brands fa-google"></i>
+        
+        <input type="text" placeholder="Search Google or type a URL">
+    </div>
+
+    <div class="right-icons">
+        <i class="fa-solid fa-bookmark"></i>
+        <i class="fa-regular fa-user"></i>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+
+    <h1 class="logo">Google</h1>
+
+    <div class="search-box">
+        
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search Google or type a URL">
+    <button onclick="searchGoogle()">Search</button>
+    
+        <i class="fa-solid fa-microphone"></i>
+    
+        <i class="fa-solid fa-camera"></i>
+    </div>
+
+    <!-- Shortcuts -->
+    <div class="shortcuts">
+
+        <div class="shortcut">
+            <div class="circle">
+                <a href="https://www.google.com"><b>G</b></a></div>
+            <p>Google</p>
+
+        </div>
+
+        <div class="shortcut">
+            <div class="circle">
+                <a href="https://www.youtube.com"><b>Y</b></a>
+            </div>
+            <p>YouTube</p>
+        </div>
+
+        <div class="shortcut">
+            <div class="circle">
+                <a href="https://www.hotstar.com"><b>H</b></a>
+            </div>
+            <p>Hotstar</p>
+        </div>
+
+        <div class="shortcut">
+            <div class="circle">
+                <a href="https://www.chrome.com"><b>C</b></a>
+            </div>
+            <p>Chrome</p>
+        </div>
+
+        <div class="shortcut">
+            <div class="circle">+</div>
+            <p>Add</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function searchGoogle() {
+    let query = document.getElementById("searchInput").value.trim();
+
+    if (query !== "") {
+        window.open(
+            "https://www.google.com/search?q=" + encodeURIComponent(query),
+            "_blank"
+        );
+    }
+}
+
+document.getElementById("searchInput").addEventListener("keypress", function(e){
+    if (e.key === "Enter") {
+        searchGoogle();
+    }
+});
+</script>
+</body>
+</html>
